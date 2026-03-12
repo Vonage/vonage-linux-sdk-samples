@@ -1,6 +1,5 @@
 # Vonage Linux SDK Samples
 
-<img src="https://assets.tokbox.com/img/vonage/Vonage_VideoAPI_black.svg" height="48px" alt="Vonage" />
 
 This repository is meant to provide some examples for you to better understand
 the features of the Vonage Linux SDK.
