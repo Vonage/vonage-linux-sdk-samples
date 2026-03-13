@@ -41,7 +41,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the OpenTok SDK from [https://tokbox.com/developer/sdks/linux/](https://tokbox.com/developer/sdks/linux/)
+Download the Vonage SDK from [https://tokbox.com/developer/sdks/linux/](https://tokbox.com/developer/sdks/linux/)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 
