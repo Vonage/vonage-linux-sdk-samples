@@ -125,5 +125,5 @@ You can end the sample application by typing Control + C in the console.
 
 ## Next steps
 
-See the [Vonage Video API developer center](https://tokbox.com/developer/)
-for more information on the OpenTok Linux SDK.
+See the [Vonage Video API developer center](https://developer.vonage.com/)
+for more information on the Vonage Linux SDK.
