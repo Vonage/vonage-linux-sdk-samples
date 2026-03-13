@@ -11,18 +11,18 @@ a publisher that uses a backgroung substractor stream video capturer where
 background subtraction is performed through OpenCV.
 
 You will need a valid [Vonage Video API](https://tokbox.com/developer/)
-account to build this app. (Note that OpenTok is now the Vonage Video API.)
+account to build this app. (Note that Vonage is now the Vonage Video API.)
 
 ## Setting up your environment
 
-### OpenTok SDK
+### Vonage SDK
 
 Building this sample application requires having a local installation of the
-OpenTok Linux SDK.
+Vonage Linux SDK.
 
 #### On Debian-based Linuxes
 
-The OpenTok Linux SDK for x86_64 is available as a Debian
+The Vonage Linux SDK for x86_64 is available as a Debian
 package. For Debian we support Debian 11 (Bullseye). We maintain
 our own Debian repository on packagecloud. Follow these steps
 to install the packages from our repository.
