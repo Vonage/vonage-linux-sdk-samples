@@ -33,7 +33,7 @@ to install the packages from our repository.
 curl -s https://packagecloud.io/install/repositories/tokbox/debian/script.deb.sh | sudo bash
 ```
 
-* Install the OpenTok Linux SDK packages.
+* Install the Vonage Linux SDK packages.
 
 ```bash
 sudo apt install libopentok-dev
