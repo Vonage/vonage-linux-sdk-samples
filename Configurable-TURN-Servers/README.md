@@ -21,7 +21,7 @@ Vonage Linux SDK.
 #### On Debian-based Linuxes
 
 The Vonage Linux SDK for x86_64 is available as a Debian
-package. For Debian we support Debian 11 (Bulleyes). We maintain
+package. For Debian we support Debian 13. We maintain
 our own Debian repository on packagecloud. Follow these steps
 to install the packages from our repository.
 

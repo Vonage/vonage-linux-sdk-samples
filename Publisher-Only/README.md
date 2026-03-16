@@ -13,7 +13,7 @@ account to build this app.
 ## Building and running the sample app
 
 Let's build this sample for the Raspberry Pi device. For now the SDK build for
-this device is distributed via a direct download in the TokBox developer center
+this device is distributed via a direct download in the Vonage developer center
 as a `tgz` package.
 
 Before building the sample application you have to download the Vonage Linux SDK
