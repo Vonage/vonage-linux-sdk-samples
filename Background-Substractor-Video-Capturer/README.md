@@ -10,8 +10,8 @@ This sample builds upon the [Publisher Only](../Publisher-Only) sample, but with
 a publisher that uses a backgroung substractor stream video capturer where
 background subtraction is performed through OpenCV.
 
-You will need a valid [Vonage Video API](https://tokbox.com/developer/)
-account to build this app. (Note that Vonage is now the Vonage Video API.)
+You will need a valid [Vonage Video API](https://developer.vonage.com/)
+account to build this app.
 
 ## Setting up your environment
 
@@ -41,7 +41,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the Vonage SDK from [https://tokbox.com/developer/sdks/linux/](https://tokbox.com/developer/sdks/linux/)
+Download the Vonage SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 
@@ -87,13 +87,12 @@ Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
 cp common/src/config-sample.h  Background-Substractor-Video-Capturer/config.h
 ```
 
-Edit the `config.h` file and add your OpenTok API key,
-an OpenTok session ID, and token for that session. For test purposes,
+Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
 you can obtain a session ID and token from the project page in your
-[Vonage Video API](https://tokbox.com/developer/) account. However,
+[Vonage Dashboard](https://dashboard.vonage.com/). However,
 in a production application, you will need to dynamically obtain the session
 ID and token from a web service that uses one of
-the [Vonage Video API server SDKs](https://tokbox.com/developer/sdks/server/).
+the [Vonage Video API server SDKs](https://developer.vonage.com/en/video/server-sdks/overview).
 
 Next, create the building bits using `cmake`:
 
@@ -116,8 +115,8 @@ When the `background_substractor_video_capturer` binary is built, run it:
 ./background_substractor_video_capturer
 ```
 
-You can use the [OpenTok Playground](https://tokbox.com/developer/tools/playground/)
-to connect to the OpenTok session in a web browser, view the stream published
+You can use the [Vonage Playground](https://tools.vonage.com/video/playground)
+to connect to the Vonage session in a web browser, view the stream published
 by the Background Substractor Video Capturer app, and publish a stream that the
 app can subscribe to.
 
