@@ -9,19 +9,19 @@ This sample builds upon the [Publisher Only](../Publisher-Only) sample, using
 a custom audio device that implements a custom way of capturing generated audio
 samples.
 
-You will need a valid [Vonage Video API](https://tokbox.com/developer/)
-account to build this app. (Note that OpenTok is now the Vonage Video API.)
+You will need a valid [Vonage Video API](https://developer.vonage.com/)
+account to build this app.
 
 ## Setting up your environment
 
-### OpenTok SDK
+### Vonage SDK
 
 Building this sample application requires having a local installation of the
-OpenTok Linux SDK.
+Vonage Linux SDK.
 
 #### On Debian-based Linuxes
 
-The OpenTok Linux SDK for x86_64 is available as a Debian
+The Vonage Linux SDK for x86_64 is available as a Debian
 package. For Debian we support Debian 12 (Bookworm). We maintain
 our own Debian repository on packagecloud. Follow these steps
 to install the packages from our repository.
@@ -32,7 +32,7 @@ to install the packages from our repository.
 curl -s https://packagecloud.io/install/repositories/tokbox/debian/script.deb.sh | sudo bash
 ```
 
-* Install the OpenTok Linux SDK packages.
+* Install the Vonage Linux SDK packages.
 
 ```bash
 sudo apt install libopentok-dev
@@ -40,7 +40,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the OpenTok SDK from [https://tokbox.com/developer/sdks/linux/](https://tokbox.com/developer/sdks/linux/)
+Download the Vonage SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 
@@ -85,13 +85,12 @@ Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
 $ cp common/src/config-sample.h  Custom-Audio-Device/config.h
 ```
 
-Edit the `config.h` file and add your OpenTok API key,
-an OpenTok session ID, and token for that session. For test purposes,
+Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
 you can obtain a session ID and token from the project page in your
-[Vonage Video API](https://tokbox.com/developer/) account. However,
+[Vonage Dashboard](https://dashboard.vonage.com/). However,
 in a production application, you will need to dynamically obtain the session
 ID and token from a web service that uses one of
-the [Vonage Video API server SDKs](https://tokbox.com/developer/sdks/server/).
+the [Vonage Video API server SDKs](https://developer.vonage.com/en/video/server-sdks/overview).
 
 Next, create the building bits using `cmake`:
 
@@ -114,15 +113,15 @@ When the `custom_audio_device` binary is built, run it:
 $ ./custom_audio_device
 ```
 
-You can use the [OpenTok Playground](https://tokbox.com/developer/tools/playground/)
-to connect to the OpenTok session in a web browser, view the stream published
+You can use the [Vonage Playground](https://tools.vonage.com/video/playground)
+to connect to the Vonage session in a web browser, view the stream published
 by the Custom Audio Device app, and publish a stream that the app can subscribe to.
 
 You can end the sample application by typing Control + C in the console.
 
 ## Understanding the code
 
-The main.cpp file includes the OpenTok Linux SDK header:
+The main.cpp file includes the Vonage Linux SDK header:
 
 ```c
 #include "opentok.h"
@@ -135,7 +134,7 @@ upon the [Publisher Only](../Publisher-Only) sample.
 
 A custom audio device is represented by an `otc_audio_device` struct. And an
 `otc_audio_device_callbacks` struct includes function pointers to functions
-that act as the audio-related callbacks that the OpenTok Linux SDK invokes.
+that act as the audio-related callbacks that the Vonage Linux SDK invokes.
 
 The implementation of the custom audio device in this sample defines a custom
 audio capturer. It does not set up a custom audio renderer, but its implementation
@@ -185,7 +184,7 @@ static otc_bool audio_device_start_capturer(const otc_audio_device *audio_device
 
 The `capturer_thread_start()` function creates an array of 480 16-bit audio samples
 (from a generated waveform) and passes the array to the
-`otc_audio_device_write_capture_data()` function, defined in the OpenTok Linux
+`otc_audio_device_write_capture_data()` function, defined in the Vonage Linux
 SDK:
 
 ```c
@@ -219,7 +218,7 @@ array to the audio buffer that will be used for audio in the published stream.
 
 Once the application initializes the `struct audio_device` struct and sets the
 pointers to the callback functions, the custom audio device can be set by
-using the `otc_set_audio_device()` function defined in the OpenTok Linux SDK.
+using the `otc_set_audio_device()` function defined in the Vonage Linux SDK.
 
 ```c
   otc_set_audio_device(&(device->audio_device_callbacks));
@@ -230,7 +229,7 @@ The function takes a pointer to the `audio_device_callbacks` struct
 
 ### Configuring the audio device
 
-The OpenToken Linux SDK calls the `get_capture_settings` callback function
+The Vonage Linux SDK calls the `get_capture_settings` callback function
 that we added to the `audio_device_callbacks` struct. In this callback, 
 we adjust configuration settings for the audio capturer:
  
@@ -254,9 +253,9 @@ each 10 microseconds (48,000 per second).
 
 ## Next steps
 
-See the [Vonage Video API developer center](https://tokbox.com/developer/)
-for more information on the OpenTok Linux SDK.
+See the [Vonage Video API developer center](https://developer.vonage.com/)
+for more information on the Vonage Linux SDK.
 
-See the [Adjusting audio and video -- Linux](https://tokbox.com/developer/guides/audio-video/linux)
+See the [Concepts and Guides](https://developer.vonage.com/en/video/concepts-and-guides)
 developer for more information on setting custom audio captures and renderers,
-as well as other audio options, using the OpenTok Linux SDK.
+as well as other audio options, using the Vonage Linux SDK.
