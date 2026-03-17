@@ -14,7 +14,7 @@ account to build this app.
 
 ## Setting up your environment
 
-### Vonage SDK
+### Vonage Video Linux SDK
 
 Building this sample application requires having a local installation of the
 Vonage Linux SDK.
@@ -40,7 +40,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the Vonage SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
+Download the Vonage Video Linux SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 

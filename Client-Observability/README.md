@@ -4,11 +4,11 @@ This application, built on top of Basic Video Chat, shows how to [retrieve stati
 
 The Vonage Linux SDK provides calls to access real-time network and media statistics in a video session. These calls report detailed stream quality metrics—such as packet loss, data received, and bandwidth—and can be used on any publisher or subscribed stream. </p>
 
-In addition to [publisher](https://developer.vonage.com/en/video/guides/client-observability/linux?source=video#otcpublishervideostats) and [subscriber statistics](https://developer.vonage.com/en/video/guides/client-observability/linux?source=video#otcsubscribervideostats) - which cover common metrics as well as detailed RTC stats reports - the Vonage SDK exposes sender-side statistics, allowing receivers to monitor the sender’s connection performance in real time.
+In addition to [publisher](https://developer.vonage.com/en/video/guides/client-observability/linux?source=video#otcpublishervideostats) and [subscriber statistics](https://developer.vonage.com/en/video/guides/client-observability/linux?source=video#otcsubscribervideostats) - which cover common metrics as well as detailed RTC stats reports - the Vonage Video Linux SDK exposes sender-side statistics, allowing receivers to monitor the sender’s connection performance in real time.
 
 ## Setting up your environment
 
-### Vonage SDK
+### Vonage Video Linux SDK
 
 Building this sample application requires having a local installation of the
 Vonage Linux SDK.
@@ -34,7 +34,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the Vonage SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
+Download the Vonage Video Linux SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 
