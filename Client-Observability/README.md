@@ -1,22 +1,22 @@
 # Client Observability
 
-This application, built on top of Basic Video Chat, shows how to [retrieve statistics](https://tokbox.com/developer/guides/client-observability/) from publishers and subscribers.
+This application, built on top of Basic Video Chat, shows how to [retrieve statistics](https://developer.vonage.com/en/video/guides/client-observability/linux?source=video) from publishers and subscribers.
 
-The OpenTok Linux SDK provides calls to access real-time network and media statistics in a video session. These calls report detailed stream quality metrics—such as packet loss, data received, and bandwidth—and can be used on any publisher or subscribed stream. </p>
+The Vonage Linux SDK provides calls to access real-time network and media statistics in a video session. These calls report detailed stream quality metrics—such as packet loss, data received, and bandwidth—and can be used on any publisher or subscribed stream. </p>
 
-In addition to [publisher](https://tokbox.com/developer/guides/publish-stream/linux/#get_stats) and [subscriber statistics](https://tokbox.com/developer/guides/subscribe-stream/linux/#stream_info)—which cover common metrics as well as detailed RTC stats reports—the OpenTok SDK exposes sender-side statistics, allowing receivers to monitor the sender’s connection performance in real time.
+In addition to [publisher](https://developer.vonage.com/en/video/guides/client-observability/linux?source=video#otcpublishervideostats) and [subscriber statistics](https://developer.vonage.com/en/video/guides/client-observability/linux?source=video#otcsubscribervideostats) - which cover common metrics as well as detailed RTC stats reports - the Vonage Video Linux SDK exposes sender-side statistics, allowing receivers to monitor the sender’s connection performance in real time.
 
 ## Setting up your environment
 
-### OpenTok SDK
+### Vonage Video Linux SDK
 
 Building this sample application requires having a local installation of the
-OpenTok Linux SDK.
+Vonage Linux SDK.
 
 #### On Debian-based Linuxes
 
-The OpenTok Linux SDK for x86_64 is available as a Debian
-package. For Debian we support Debian 12 (Bookworm). We maintain
+The Vonage Linux SDK for x86_64 is available as a Debian
+package. For Debian we support Debian 13. We maintain
 our own Debian repository on packagecloud. Follow these steps
 to install the packages from our repository.
 
@@ -26,7 +26,7 @@ to install the packages from our repository.
 curl -s https://packagecloud.io/install/repositories/tokbox/debian/script.deb.sh | sudo bash
 ```
 
-* Install the OpenTok Linux SDK packages.
+* Install the Vonage Linux SDK packages.
 
 ```bash
 sudo apt install libopentok-dev
@@ -34,7 +34,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the OpenTok SDK from [https://tokbox.com/developer/sdks/linux/](https://tokbox.com/developer/sdks/linux/)
+Download the Vonage Video Linux SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 
@@ -79,13 +79,12 @@ Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
 $ cp common/src/config-sample.h  Client-Observability/config.h
 ```
 
-Edit the `config.h` file and add your OpenTok API key,
-an OpenTok session ID, and token for that session. For test purposes,
+Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
 you can obtain a session ID and token from the project page in your
-[Vonage Video API](https://tokbox.com/developer/) account. However,
+[Vonage Dashboard](https://dashboard.vonage.com/). However,
 in a production application, you will need to dynamically obtain the session
 ID and token from a web service that uses one of
-the [Vonage Video API server SDKs](https://tokbox.com/developer/sdks/server/).
+the [Vonage Video API server SDKs](https://developer.vonage.com/en/video/server-sdks/overview).
 
 Next, create the building bits using `cmake`:
 
@@ -108,8 +107,8 @@ When the `client_observability` binary is built, run it:
 $ ./client_observability
 ```
 
-You can use the [OpenTok Playground](https://tokbox.com/developer/tools/playground/)
-to connect to the OpenTok session in a web browser, view the stream published
+You can use the [Vonage Playground](https://tools.vonage.com/video/playground)
+to connect to the Vonage session in a web browser, view the stream published
 by the Client Observability app, and publish a stream that the app can subscribe to.
 
 You can end the sample application by typing Control + C in the console.
@@ -164,4 +163,3 @@ otc_publisher_settings_set_sender_stats_track(settings, OTC_TRUE);
 
 otc_publisher* publisher = otc_publisher_new_with_settings( &publisher_callbacks, settings);
 ```
-

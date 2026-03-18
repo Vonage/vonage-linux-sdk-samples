@@ -1,29 +1,29 @@
 # Publisher Only
 
 The Publisher Only sample application is a very simple application meant to get
-a new developer started using the OpenTok Linux SDK.
+a new developer started using the Vonage Linux SDK.
 
 Upon building and running this sample application, you should be able to have
-one-way audio and video communication using OpenTok. This sample application is
+one-way audio and video communication using Vonage. This sample application is
 intended to be used in a tiny single-board computer, such as the Raspberry Pi.
 
-You will need a valid [Vonage Video API](https://tokbox.com/developer/)
-account to build this app. (Note that OpenTok is now the Vonage Video API.)
+You will need a valid [Vonage Video API](https://developer.vonage.com/)
+account to build this app.
 
 ## Building and running the sample app
 
 Let's build this sample for the Raspberry Pi device. For now the SDK build for
-this device is distributed via a direct download in the TokBox developer center
+this device is distributed via a direct download in the Vonage developer center
 as a `tgz` package.
 
-Before building the sample application you have to download the OpenTok Linux SDK
+Before building the sample application you have to download the Vonage Linux SDK
 package and uncompress it to a local folder you create (such as /assets):
 
 ```bash
 $ cd assets; wget https://tokbox.com/downloads/libopentok_linux_llvm_armv7-2.32.1
 ```
 
-Uncompress the OpenTok Linux SDK package in the [assets](../assets) folder.
+Uncompress the Vonage Linux SDK package in the [assets](../assets) folder.
 Uncompress the version of the SDK for the target host of your sample application.
 For example, for ARMv7 uncompress the libopentok_linux_llvm_armv7 tgz file:
 
@@ -33,7 +33,7 @@ $ cd assets; unp libopentok_linux_llvm_armv7-2.32.1.tgz
 
 This will create a `libopentok_linux_llvm_armv7` folder at
 [assets/libopentok_linux_llvm_armv7](../assets/libopentok_linux_llvm_armv7). The
-build system will try find the OpenTok Linux SDK header files and library under
+build system will try find the Vonage Linux SDK header files and library under
 the `assets` folder.
 
 The folder above contains a handy `CMakeListz.txt` file the developer can use if
@@ -79,13 +79,12 @@ Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
 $ cp common/src/config-sample.h  Publisher-Only/config.h
 ```
 
-Edit the `config.h` file and add your OpenTok API key,
-an OpenTok session ID, and token for that session. For test purposes,
+Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
 you can obtain a session ID and token from the project page in your
-[Vonage Video API](https://tokbox.com/developer/) account. However,
+[Vonage Dashboard](https://dashboard.vonage.com/). However,
 in a production application, you will need to dynamically obtain the session
 ID and token from a web service that uses one of
-the [Vonage Video API server SDKs](https://tokbox.com/developer/sdks/server/).
+the [Vonage Video API server SDKs](https://developer.vonage.com/en/video/server-sdks/overview).
 
 Next, create the building bits using `cmake`:
 
@@ -108,8 +107,8 @@ When the `publisher_only` binary is built, run it:
 $ ./publisher_only
 ```
 
-You can use the [OpenTok Playground](https://tokbox.com/developer/tools/playground/)
-to connect to the OpenTok session in a web browser and view the stream published
+You can use the [Vonage Playground](https://tools.vonage.com/video/playground)
+to connect to the Vonage session in a web browser and view the stream published
 by the application.
 
 You can end the sample application by typing Control + C in the console.
@@ -120,12 +119,12 @@ This application uses the same concepts that
 the [Basic Video Chat](../Basic-Video-Chat) application uses. See the
 [Understanding the code section](../Basic-Video-Chat/README.md#understanding-the-code)
 of that application's README file (and disregard information about subscribing
-to streams) to see how the code uses the OpenTok Linux SDK.
+to streams) to see how the code uses the Vonage Linux SDK.
 
 ## Next steps
 
 The [Basic Video Chat application](../Basic-Video_Chat) sample builds upon the
-Publisher Only sample, adding an OpenTok stream subscriber in addition to a publisher. 
+Publisher Only sample, adding an Vonage stream subscriber in addition to a publisher. 
 
-See the [Vonage Video API developer center](https://tokbox.com/developer/)
-for more information on the OpenTok Linux SDK.
+See the [Vonage Video API developer center](https://developer.vonage.com/)
+for more information on the Vonage Linux SDK.

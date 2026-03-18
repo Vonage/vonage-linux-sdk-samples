@@ -2,26 +2,26 @@
 
 The Configurable TURN Servers sample application shows how to use your own
 TURN servers to route media traffic. See
-[this documentation](https://tokbox.com/developer/guides/configurable-turn-servers/)
-for basic information on using your own TURN servers in an OpenTok application.
+[this documentation](https://developer.vonage.com/en/video/guides/configurable-turn-servers)
+for basic information on using your own TURN servers in an Vonage application.
 
 This sample builds upon the [Publisher Only](../Publisher-Only) sample, with
 settings for using your own TURN servers.
 
-You will need a valid [Vonage Video API](https://tokbox.com/developer/)
-account to build this app. (Note that OpenTok is now the Vonage Video API.)
+You will need a valid [Vonage Video API](https://developer.vonage.com/)
+account to build this app.
 
 ## Setting up your environment
 
-### OpenTok SDK
+### Vonage Video Linux SDK
 
 Building this sample application requires having a local installation of the
-OpenTok Linux SDK.
+Vonage Linux SDK.
 
 #### On Debian-based Linuxes
 
-The OpenTok Linux SDK for x86_64 is available as a Debian
-package. For Debian we support Debian 11 (Bulleyes). We maintain
+The Vonage Linux SDK for x86_64 is available as a Debian
+package. For Debian we support Debian 13. We maintain
 our own Debian repository on packagecloud. Follow these steps
 to install the packages from our repository.
 
@@ -31,7 +31,7 @@ to install the packages from our repository.
 curl -s https://packagecloud.io/install/repositories/tokbox/debian/script.deb.sh | sudo bash
 ```
 
-* Install the OpenTok Linux SDK packages.
+* Install the Vonage Linux SDK packages.
 
 ```bash
 sudo apt install libopentok-dev
@@ -39,7 +39,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the OpenTok SDK from [https://tokbox.com/developer/sdks/linux/](https://tokbox.com/developer/sdks/linux/)
+Download the Vonage Video Linux SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 
@@ -84,13 +84,12 @@ Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
 $ cp common/src/config-sample.h  Configurable-TURN-Servers/config.h
 ```
 
-Edit the `config.h` file and add your OpenTok API key,
-an OpenTok session ID, and token for that session. For test purposes,
+Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
 you can obtain a session ID and token from the project page in your
-[Vonage Video API](https://tokbox.com/developer/) account. However,
+[Vonage Dashboard](https://dashboard.vonage.com/). However,
 in a production application, you will need to dynamically obtain the session
 ID and token from a web service that uses one of
-the [Vonage Video API server SDKs](https://tokbox.com/developer/sdks/server/).
+the [Vonage Video API server SDKs](https://developer.vonage.com/en/video/server-sdks/overview).
 
 Edit the [main.cpp](main.cpp) file, replacing following with values
 for your TURN server:
@@ -122,8 +121,8 @@ When the `configurable_turn_servers` binary is built, run it:
 $ ./configurable_turn_servers
 ```
 
-You can use the [OpenTok Playground](https://tokbox.com/developer/tools/playground/)
-to connect to the OpenTok session in a web browser, view the stream published
+You can use the [Vonage Playground](https://tools.vonage.com/video/playground)
+to connect to the Vonage session in a web browser, view the stream published
 by the Custom TURN Servers app, and publish a stream that the app can subscribe to.
 After entering the session ID in the "Join existing session" tab of the first page
 of the Playground, click the "Advanced Firewall Control" link (near the top of
@@ -143,7 +142,7 @@ a stream, and subscribe to a stream.
 ### Setting TURN server options
 
 The application initializes an `ice_config` variable of type `otc_custom_ice_config`,
-defined in the OpenTok Linux SDK:
+defined in the Vonage Linux SDK:
 
 ```c
 struct otc_custom_ice_config ice_config;
@@ -176,7 +175,7 @@ The type `otc_custom_ice_config` struct includes the following members:
   the TURN servers.
 
 The application instantiates an `otc_session_settings` struct,
-defined in the OpenTok Linux SDK:
+defined in the Vonage Linux SDK:
 
 ```c
 otc_session_settings *session_settings = otc_session_settings_new();
@@ -193,7 +192,7 @@ if (session_settings != nullptr) {
 ```
 
 Finally, the app instantiates the session using the `otc_session_new_with_settings()`
-function, defined in the OpenTok Linux SDK:
+function, defined in the Vonage Linux SDK:
 
 ```c
 otc_session *session = nullptr;
@@ -212,5 +211,5 @@ used by all publishers and subscribers.
 
 ## Next steps
 
-See the [Vonage Video API developer center](https://tokbox.com/developer/)
-for more information on the OpenTok Linux SDK.
+See the [Vonage Video API developer center](https://developer.vonage.com/)
+for more information on the Vonage Linux SDK.

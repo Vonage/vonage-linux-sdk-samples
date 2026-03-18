@@ -4,26 +4,26 @@ This sample application shows how to use a video capturer being used by a
 publisher in your application. It is important to note that a custom video
 capturer always belongs to a given publisher. The video capturer captures
 video frames from a RTSP stream. A publisher using this video capturer pipes the
-RTSP stream into a OpenTok session.
+RTSP stream into a Vonage session.
 
 This sample builds upon the [Publisher Only](../Publisher-Only) sample, but with
 a publisher that uses a RTSP stream video capturer.
 
-You will need a valid [Vonage Video API](https://tokbox.com/developer/)
-account to build this app. (Note that OpenTok is now the Vonage Video API.)
+You will need a valid [Vonage Video API](https://developer.vonage.com/)
+account to build this app.
 
 ## Setting up your environment
 
-### OpenTok SDK
+### Vonage Video Linux SDK
 
 Building this sample application requires having a local installation of the
-OpenTok Linux SDK.
+Vonage Linux SDK.
 
 #### On Debian-based Linuxes
 
-The OpenTok Linux SDK for x86_64 is available as a Debian
+The Vonage Linux SDK for x86_64 is available as a Debian
 package. We maintain our own Debian repository on packagecloud. 
-For Debian 12, follow these steps to install the packages from our repository.
+For Debian 13, follow these steps to install the packages from our repository.
 
 * Add packagecloud repository:
 
@@ -31,7 +31,7 @@ For Debian 12, follow these steps to install the packages from our repository.
 curl -s https://packagecloud.io/install/repositories/tokbox/debian/script.deb.sh | sudo bash
 ```
 
-* Install the OpenTok Linux SDK packages.
+* Install the Vonage Linux SDK packages.
 
 ```bash
 sudo apt install libopentok-dev
@@ -39,7 +39,7 @@ sudo apt install libopentok-dev
 
 #### On non-Debian-based Linuxes
 
-Download the OpenTok SDK from [https://tokbox.com/developer/sdks/linux/](https://tokbox.com/developer/sdks/linux/)
+Download the Vonage Video Linux SDK from [Vonage developer portal](https://developer.vonage.com/en/video/client-sdks/linux/overview#tgz-packages)
 and extract it and set the `LIBOPENTOK_PATH` environment variable to point to the path where you extracted the SDK.
 For example:
 
@@ -87,13 +87,12 @@ Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
 $ cp common/src/config-sample.h  RTSP-Stream-Video-Capturer/config.h
 ```
 
-Edit the `config.h` file and add your OpenTok API key,
-an OpenTok session ID, and token for that session. For test purposes,
+Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
 you can obtain a session ID and token from the project page in your
-[Vonage Video API](https://tokbox.com/developer/) account. However,
+[Vonage Dashboard](https://dashboard.vonage.com/). However,
 in a production application, you will need to dynamically obtain the session
 ID and token from a web service that uses one of
-the [Vonage Video API server SDKs](https://tokbox.com/developer/sdks/server/).
+the [Vonage Video API server SDKs](https://developer.vonage.com/en/video/server-sdks/overview).
 
 Edit the `main.cpp` file and the RTSP URL you want to capture video frames from.
 ```
@@ -131,13 +130,13 @@ When the `rtsp_stream_video_capturer` binary is built, run it:
 $ ./rtsp_stream_video_capturer
 ```
 
-You can use the [OpenTok Playground](https://tokbox.com/developer/tools/playground/)
-to connect to the OpenTok session in a web browser, view the stream published
+You can use the [Vonage Playground](https://tools.vonage.com/video/playground)
+to connect to the Vonage session in a web browser, view the stream published
 by the RTSP Stream Video Capturer app, and publish a stream that the app can subscribe to.
 
 You can end the sample application by typing Control + C in the console.
 
 ## Next steps
 
-See the [Vonage Video API developer center](https://tokbox.com/developer/)
-for more information on the OpenTok Linux SDK.
+See the [Vonage Video API developer center](https://developer.vonage.com/)
+for more information on the Vonage Linux SDK.
