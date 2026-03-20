@@ -250,7 +250,7 @@ int main(int argc, char** argv) {
   session_callbacks.on_error = on_session_error;
 
   otc_session *session = nullptr;
-  session = otc_session_new(API_KEY, SESSION_ID, &session_callbacks);
+  session = otc_session_new(APP_ID, SESSION_ID, &session_callbacks);
 
   if (session == nullptr) {
     std::cout << "Could not create OpenTok session successfully" << std::endl;

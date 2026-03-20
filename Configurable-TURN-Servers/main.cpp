@@ -103,7 +103,7 @@ int main(int argc, char** argv) {
 
   otc_session *session = nullptr;
 
-  session = otc_session_new_with_settings(API_KEY,
+  session = otc_session_new_with_settings(APP_ID,
                                           SESSION_ID,
                                           &session_callbacks,
                                           session_settings);

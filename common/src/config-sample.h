@@ -1,7 +1,7 @@
 #ifndef MYCONFIG_H
 #define MYCONFIG_H
 
-#define API_KEY ""
+#define APP_ID ""
 #define SESSION_ID ""
 #define TOKEN ""
 
