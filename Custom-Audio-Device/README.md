@@ -34,8 +34,50 @@ curl -s https://packagecloud.io/install/repositories/tokbox/debian/script.deb.sh
 
 * Install the Vonage Linux SDK packages.
 
+You can install either of the following packages:
+
+- `libopentok-dev` (legacy package name)
+- `libvonage-client-sdk-video-dev` (new package name)
+
+> **Note:** These two packages are mutually exclusive — they provide the same header files and cannot coexist. If you have one installed and want to switch to the other, remove it first:
+> ```bash
+> sudo apt remove libopentok-dev libopentok
+> # or
+> sudo apt remove libvonage-client-sdk-video-dev libvonage-client-sdk-video
+> ```
+
+To pick a specific version, first list the available ones and assign your chosen version to a variable:
+
+```bash
+apt-cache madison libopentok-dev | awk '{print $3}' | head -5
+VERSION=<chosen-version-from-list>
+# or
+apt-cache madison libvonage-client-sdk-video-dev | awk '{print $3}' | head -5
+VERSION=<chosen-version-from-list>
+```
+
+Then install it:
+
+> **Note:** When installing a specific version, you must also pin the runtime library to the same version to avoid dependency conflicts.
+
+```bash
+sudo apt install libopentok-dev=$VERSION libopentok=$VERSION
+# or
+sudo apt install libvonage-client-sdk-video-dev=$VERSION libvonage-client-sdk-video=$VERSION
+```
+
+> **Note:** When using `libvonage-client-sdk-video`, the shared library's SONAME is `libopentok.so`. You need to create a symlink so the dynamic linker can find it at runtime:
+> ```bash
+> sudo ln -s /usr/lib/x86_64-linux-gnu/libvonage-client-sdk-video.so /usr/lib/x86_64-linux-gnu/libopentok.so
+> sudo ldconfig
+> ```
+
+Or install the latest available version:
+
 ```bash
 sudo apt install libopentok-dev
+# or
+sudo apt install libvonage-client-sdk-video-dev
 ```
 
 #### On non-Debian-based Linuxes
@@ -45,8 +87,8 @@ and extract it and set the `LIBOPENTOK_PATH` environment variable to point to th
 For example:
 
 ```bash
-wget https://tokbox.com/downloads/libopentok_linux_llvm_x86_64-2.32.1
-tar xvf libopentok_linux_llvm_x86_64-2.32.1
+wget https://tokbox.com/downloads/libopentok_linux_llvm_x86_64-<version>
+tar xvf libopentok_linux_llvm_x86_64-<version>
 export LIBOPENTOK_PATH=<path_to_SDK>
 ```
 
@@ -76,13 +118,6 @@ in the project directory:
 
 ```bash
 $ mkdir Custom-Audio-Device/build
-```
-
-Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
-`Custom-Audio-Device/`:
-
-```bash
-$ cp common/src/config-sample.h  Custom-Audio-Device/config.h
 ```
 
 Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
