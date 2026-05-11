@@ -72,13 +72,6 @@ folder, let's go ahead and create it in the project directory:
 $ mkdir Publisher-Only/build
 ```
 
-Copy the [config-sample.h](../common/src/config-sample.h) file as `config.h` at
-`Publisher-Only/`:
-
-```bash
-$ cp common/src/config-sample.h  Publisher-Only/config.h
-```
-
 Edit the `config.h` file and add your Vonage Application Id, Vonage session ID, and token for that session. For test purposes,
 you can obtain a session ID and token from the project page in your
 [Vonage Dashboard](https://dashboard.vonage.com/). However,
