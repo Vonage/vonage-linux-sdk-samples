@@ -30,8 +30,8 @@ curl -s https://packagecloud.io/install/repositories/tokbox/debian/script.deb.sh
 
 You can install either of the following packages:
 
-- `libopentok-dev` (legacy package name)
-- `libvonage-client-sdk-video-dev` (new package name)
+- `libopentok-dev` (OpenTok package name)
+- `libvonage-client-sdk-video-dev` (Vonage package name)
 
 > **Note:** These two packages are mutually exclusive — they provide the same header files and cannot coexist. If you have one installed and want to switch to the other, remove it first:
 > ```bash
